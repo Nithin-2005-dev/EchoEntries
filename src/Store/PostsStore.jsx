@@ -5,7 +5,7 @@ const PostsStore=createContext([
 const postModerator=(currentPosts,action)=>{
     let newPosts=currentPosts;
         if(action.type==="add"){
-            if(action.payload.title==="" || action.parse.description==""){
+            if(action.payload.title==="" || action.payload.description==""){
                 notifyWarn();
             }else{
             newPosts=[...currentPosts,{id:action.payload.id,title:action.payload.title,description:action.payload.description,tags:action.payload.hashTags}];
