@@ -1,0 +1,6 @@
+body{
+  background:linear-gradient(to right,#9B86BD,#7776B3);
+}
+::-webkit-scrollbar{
+  width: 0%;
+}
