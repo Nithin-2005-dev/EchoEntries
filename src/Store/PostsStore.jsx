@@ -34,7 +34,7 @@ transition:Bounce
 });
     }
     const notifyWarn=()=>{
-        toast.error('enter valid fields', {
+        toast.error('enter mandetory fields', {
 position: "top-center",
 autoClose: 5000,
 hideProgressBar: false,
