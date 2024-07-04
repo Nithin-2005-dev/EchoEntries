@@ -10,7 +10,7 @@ const Addpost = () => {
   return (
     <>
     <ToastContainer/>
-    <div className='flex flex-col mx-6 my-7 text-lg'>
+    <div className='flex flex-col mx-6 my-7 text-lg content-center'>
     <h3 className='text-center text-3xl md:text-4xl'>Create Blog</h3>
     <label htmlFor="blog-title">Blog Title</label>
       <input type="text" className='bg-slate-100 h-10 p-4 rounded-xl' placeholder='enter blog title' ref={title}/>

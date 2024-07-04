@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 import { Bounce, toast } from "react-toastify";
 const PostsStore=createContext([
 ]);
@@ -8,7 +8,11 @@ const postModerator=(currentPosts,action)=>{
             if(action.payload.title==="" || action.payload.description==""){
                 notifyWarn();
             }else{
-            newPosts=[...currentPosts,{id:action.payload.id,title:action.payload.title,description:action.payload.description,tags:action.payload.hashTags}];
+                if(currentPosts==null){
+            newPosts=[{id:action.payload.id,title:action.payload.title,body:action.payload.description,tags:action.payload.hashTags}];}
+            else{
+                newPosts=[{id:action.payload.id,title:action.payload.title,body:action.payload.description,tags:action.payload.hashTags},...currentPosts]
+            }
             notify("post added sucessfully");
             }
         }else if(action.type==="delete"){
@@ -31,7 +35,7 @@ draggable: true,
 progress: undefined,
 theme: "colored",
 transition:Bounce
-});
+})
     }
     const notifyWarn=()=>{
         toast.error('enter mandatory fields', {
@@ -47,7 +51,17 @@ transition: Bounce,
 });
     }
 const Provider=({children})=>{
-    const [posts,dispatchPosts]=useReducer(postModerator,JSON.parse(localStorage.getItem("posts")));
+    // const [get,set]=useState(true)
+// if(get){
+// let local=JSON.parse(localStorage.getItem("posts"))
+// fetch('https://dummyjson.com/posts')
+// .then(res => res.json())
+// .then(obj=>{
+// localStorage.setItem("posts",JSON.stringify(local.concat(obj.posts)))
+// set(false)
+// })
+// }
+const [posts,dispatchPosts]=useReducer(postModerator,JSON.parse(localStorage.getItem("posts")));
     const addPost=(title,description,hashTags)=>{
         const addAction={
         type:"add",
