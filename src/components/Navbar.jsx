@@ -10,9 +10,9 @@ const Navbar = () => {
     <header>
       <nav className={`flex justify-end gap-x-4 p-4 drop-shadow-xl text-xs font-semibold text-white md:gap-x-20 ${styles['header-bg']} md:text-base`}>
       <NavLink to="/" className={({isActive})=>isActive?"text-orange-400":"text-white"}><FaHome className='inline-block m-1' />Home</NavLink>
-      <NavLink to="/friends" className={({isActive})=>isActive?"text-orange-400":"text-white"}><GiThreeFriends className='inline-block m-1' />Friends</NavLink>
-      <NavLink to="/profile" className={({isActive})=>isActive?"text-orange-400":"text-white"}><FaUser className='inline-block m-1' />Profile</NavLink>
-      <NavLink to="/addpost" className={({isActive})=>isActive?"text-orange-400":"text-white"}><MdOutlinePostAdd className='inline-block m-1' />Add post</NavLink>
+      {/* <NavLink to="/friends" className={({isActive})=>isActive?"text-orange-400":"text-white"}><GiThreeFriends className='inline-block m-1' />Friends</NavLink>
+      <NavLink to="/profile" className={({isActive})=>isActive?"text-orange-400":"text-white"}><FaUser className='inline-block m-1' />Profile</NavLink> */}
+      <NavLink to="/addpost" className={({isActive})=>isActive?"text-orange-400":"text-white"}><MdOutlinePostAdd className='inline-block m-1' />Add blog</NavLink>
       </nav>
     </header>
   )
